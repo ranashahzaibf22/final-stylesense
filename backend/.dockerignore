@@ -48,10 +48,9 @@ Thumbs.db
 !README.md
 docs/
 
-# Deployment configs (not needed in container)
+# Deployment configs (not needed in container - except start.sh)
 railway.toml
 Procfile
-start.sh
 DEPLOY_README.md
 .env.example
 .env.production.example
