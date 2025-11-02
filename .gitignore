@@ -55,6 +55,10 @@ build/
 .env.test.local
 .env.production.local
 
+# Vercel
+.vercel/
+!frontend/.vercel/project.json
+
 # Environment variables
 .env
 
