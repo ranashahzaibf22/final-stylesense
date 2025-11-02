@@ -1,0 +1,7 @@
+# Procfile for Railway/Heroku Deployment
+# Alternative to start.sh - Railway will use this if start.sh is not executable
+
+# Web process - starts the Flask application with Gunicorn
+# Uses environment variable PORT (automatically provided by Railway)
+# Optimized for production with multiple workers and appropriate timeouts
+web: gunicorn --bind 0.0.0.0:$PORT --workers 4 --timeout 120 --access-logfile - --error-logfile - app:app

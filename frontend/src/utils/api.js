@@ -111,3 +111,19 @@ export async function getProductCatalogue(params = {}) {
 
   return apiRequest(`/product-catalogue?${queryParams}`);
 }
+
+/**
+ * Default export for components that use: import api from '../utils/api'
+ */
+const api = {
+  getHealthStatus,
+  uploadWardrobeItem,
+  getWardrobeItems,
+  getRecommendations,
+  analyzeBodyShape,
+  applyARTryOn,
+  getProductCatalogue,
+  API_BASE_URL,
+};
+
+export default api;
