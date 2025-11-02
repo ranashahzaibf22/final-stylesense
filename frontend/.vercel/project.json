@@ -1,0 +1,18 @@
+{
+  "name": "stylesense-frontend",
+  "framework": "create-react-app",
+  "buildCommand": "npm install && npm run build",
+  "outputDirectory": "build",
+  "installCommand": "npm install",
+  "devCommand": "npm start",
+  "env": {
+    "REACT_APP_API_URL": {
+      "description": "Backend API URL (e.g., https://your-backend.railway.app)",
+      "required": true
+    },
+    "REACT_APP_HF_KEY": {
+      "description": "Hugging Face API Key for frontend AI features (optional)",
+      "required": false
+    }
+  }
+}
