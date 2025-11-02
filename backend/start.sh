@@ -35,13 +35,19 @@ echo "👷 Using $WORKERS workers"
 TIMEOUT=${TIMEOUT:-120}
 echo "⏱️  Worker timeout: ${TIMEOUT}s"
 
+# Set worker class (sync for simple CPU-bound tasks)
+# For ML/IO-heavy operations, consider 'gevent' or 'eventlet'
+# Install with: pip install gevent or pip install eventlet
+WORKER_CLASS=${WORKER_CLASS:-sync}
+echo "🔧 Worker class: $WORKER_CLASS"
+
 # Start Gunicorn with optimized settings for Railway
 echo "✨ Starting Gunicorn..."
 exec gunicorn \
     --bind 0.0.0.0:$PORT \
     --workers $WORKERS \
+    --worker-class $WORKER_CLASS \
     --timeout $TIMEOUT \
-    --worker-class sync \
     --access-logfile - \
     --error-logfile - \
     --log-level info \
