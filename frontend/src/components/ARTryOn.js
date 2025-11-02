@@ -9,6 +9,12 @@ function ARTryOn() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [showCamera, setShowCamera] = useState(false);
+  
+  // Real-time adjustment controls
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [scale, setScale] = useState(1.0);
+  const [rotation, setRotation] = useState(0);
+  const [showControls, setShowControls] = useState(false);
 
   const handlePersonImageUpload = (e) => {
     const file = e.target.files[0];
@@ -45,6 +51,7 @@ function ARTryOn() {
       setError(null);
       const data = await applyARTryOn(personImage, garmentImage);
       setResultImage(data.result_url);
+      setShowControls(true);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -52,11 +59,39 @@ function ARTryOn() {
     }
   };
 
+  const adjustOverlay = async (adjustmentType, value) => {
+    // Update local state
+    if (adjustmentType === 'position-x') {
+      setPosition({ ...position, x: value });
+    } else if (adjustmentType === 'position-y') {
+      setPosition({ ...position, y: value });
+    } else if (adjustmentType === 'scale') {
+      setScale(value);
+    } else if (adjustmentType === 'rotation') {
+      setRotation(value);
+    }
+    
+    // In a real implementation, this would call an API to re-render
+    // For now, we just update the CSS transform
+  };
+
   const reset = () => {
     setPersonImage(null);
     setGarmentImage(null);
     setResultImage(null);
     setError(null);
+    setPosition({ x: 0, y: 0 });
+    setScale(1.0);
+    setRotation(0);
+    setShowControls(false);
+  };
+
+  // Calculate transform style for real-time preview
+  const getTransformStyle = () => {
+    return {
+      transform: `translate(${position.x}px, ${position.y}px) scale(${scale}) rotate(${rotation}deg)`,
+      transition: 'transform 0.2s ease'
+    };
   };
 
   return (
@@ -167,18 +202,92 @@ function ARTryOn() {
           </div>
         )}
 
-        {/* Result Display */}
+        {/* Result Display with Real-time Controls */}
         {resultImage && (
           <div className="bg-white rounded-lg shadow-lg p-6">
             <h2 className="text-2xl font-semibold mb-4">Result</h2>
             
-            <div className="bg-gray-100 rounded-lg p-4 mb-4">
+            <div className="bg-gray-100 rounded-lg p-4 mb-4 relative overflow-hidden">
               <img
                 src={resultImage}
                 alt="Try-on result"
                 className="max-w-full h-auto mx-auto rounded"
+                style={getTransformStyle()}
               />
             </div>
+
+            {/* Real-time Adjustment Controls */}
+            {showControls && (
+              <div className="bg-blue-50 rounded-lg p-4 mb-4">
+                <h3 className="font-semibold text-blue-900 mb-3">Adjust Fit</h3>
+                
+                <div className="space-y-3">
+                  {/* Position X */}
+                  <div>
+                    <label className="text-sm text-gray-700 font-medium">Position X: {position.x}px</label>
+                    <input
+                      type="range"
+                      min="-50"
+                      max="50"
+                      value={position.x}
+                      onChange={(e) => adjustOverlay('position-x', parseInt(e.target.value))}
+                      className="w-full"
+                    />
+                  </div>
+                  
+                  {/* Position Y */}
+                  <div>
+                    <label className="text-sm text-gray-700 font-medium">Position Y: {position.y}px</label>
+                    <input
+                      type="range"
+                      min="-50"
+                      max="50"
+                      value={position.y}
+                      onChange={(e) => adjustOverlay('position-y', parseInt(e.target.value))}
+                      className="w-full"
+                    />
+                  </div>
+                  
+                  {/* Scale */}
+                  <div>
+                    <label className="text-sm text-gray-700 font-medium">Size: {(scale * 100).toFixed(0)}%</label>
+                    <input
+                      type="range"
+                      min="0.5"
+                      max="1.5"
+                      step="0.05"
+                      value={scale}
+                      onChange={(e) => adjustOverlay('scale', parseFloat(e.target.value))}
+                      className="w-full"
+                    />
+                  </div>
+                  
+                  {/* Rotation */}
+                  <div>
+                    <label className="text-sm text-gray-700 font-medium">Rotation: {rotation}°</label>
+                    <input
+                      type="range"
+                      min="-15"
+                      max="15"
+                      value={rotation}
+                      onChange={(e) => adjustOverlay('rotation', parseInt(e.target.value))}
+                      className="w-full"
+                    />
+                  </div>
+                </div>
+                
+                <button
+                  onClick={() => {
+                    setPosition({ x: 0, y: 0 });
+                    setScale(1.0);
+                    setRotation(0);
+                  }}
+                  className="mt-3 w-full bg-gray-500 text-white py-2 px-4 rounded font-medium hover:bg-gray-600 transition-colors text-sm"
+                >
+                  Reset Adjustments
+                </button>
+              </div>
+            )}
 
             <div className="flex gap-4">
               <button
@@ -186,6 +295,12 @@ function ARTryOn() {
                 className="flex-1 bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-gray-700 transition-colors"
               >
                 🔄 Try Another
+              </button>
+              <button
+                onClick={() => setShowControls(!showControls)}
+                className="flex-1 bg-purple-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
+              >
+                {showControls ? '🎨 Hide Controls' : '🎨 Adjust Fit'}
               </button>
               <button
                 onClick={() => window.open(resultImage, '_blank')}
