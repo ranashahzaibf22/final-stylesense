@@ -28,7 +28,7 @@ CORS(app, origins=Config.CORS_ORIGINS)
 
 # Import ML modules (with fallback if not available)
 try:
-    from ml_models.body_detection import detect_body_shape
+    from ml_models.body_detection import detect_body_shape, detect_body_pose, extract_body_measurements, remove_background
     from ml_models.recommendation_engine import generate_recommendations
     from ml_models.ar_tryon import apply_virtual_tryon
     from ml_models.segmentation import segment_clothing
@@ -36,6 +36,14 @@ try:
 except ImportError as e:
     logger.warning(f"ML modules not available: {e}. Using fallback implementations.")
     ML_AVAILABLE = False
+
+# Import user profile management
+try:
+    from backend.models.user_profile import UserProfileManager
+    profile_manager = UserProfileManager(db)
+except ImportError as e:
+    logger.warning(f"User profile module not available: {e}")
+    profile_manager = None
 
 def allowed_file(filename):
     """Check if file extension is allowed"""
@@ -295,6 +303,165 @@ def get_product_catalogue():
         
     except Exception as e:
         logger.error(f"Error fetching catalogue: {e}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/profile/create', methods=['POST'])
+def create_user_profile():
+    """Create a new user profile"""
+    try:
+        if not profile_manager:
+            return jsonify({'error': 'Profile management not available'}), 503
+        
+        data = request.get_json()
+        
+        if not data or 'user_id' not in data:
+            return jsonify({'error': 'user_id is required'}), 400
+        
+        user_id = data['user_id']
+        measurements = data.get('measurements', {})
+        body_shape = data.get('body_shape', 'unknown')
+        
+        profile = profile_manager.create_profile(user_id, measurements, body_shape)
+        
+        return jsonify({
+            'success': True,
+            'profile': profile.to_dict()
+        }), 201
+        
+    except ValueError as e:
+        return jsonify({'error': str(e)}), 400
+    except Exception as e:
+        logger.error(f"Error creating profile: {e}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/profile/<user_id>', methods=['GET'])
+def get_user_profile(user_id):
+    """Get user profile by ID"""
+    try:
+        if not profile_manager:
+            return jsonify({'error': 'Profile management not available'}), 503
+        
+        profile = profile_manager.get_profile(user_id)
+        
+        if not profile:
+            return jsonify({'error': 'Profile not found'}), 404
+        
+        return jsonify({
+            'success': True,
+            'profile': profile.to_dict()
+        })
+        
+    except Exception as e:
+        logger.error(f"Error fetching profile: {e}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/profile/<user_id>', methods=['PUT'])
+def update_user_profile(user_id):
+    """Update user profile"""
+    try:
+        if not profile_manager:
+            return jsonify({'error': 'Profile management not available'}), 503
+        
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({'error': 'No data provided'}), 400
+        
+        profile = profile_manager.update_profile(user_id, data)
+        
+        return jsonify({
+            'success': True,
+            'profile': profile.to_dict()
+        })
+        
+    except ValueError as e:
+        return jsonify({'error': str(e)}), 400
+    except Exception as e:
+        logger.error(f"Error updating profile: {e}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/body-shape/detect-pose', methods=['POST'])
+def detect_pose():
+    """Detect body pose and return keypoints"""
+    try:
+        if 'file' not in request.files:
+            return jsonify({'error': 'No file provided'}), 400
+        
+        file = request.files['file']
+        valid, message = validate_image(file)
+        
+        if not valid:
+            return jsonify({'error': message}), 400
+        
+        # Save temporarily
+        filename = secure_filename(file.filename)
+        temp_path = Config.UPLOAD_FOLDER / f"temp_{filename}"
+        file.save(str(temp_path))
+        
+        # Detect pose
+        if ML_AVAILABLE:
+            pose_data = detect_body_pose(str(temp_path))
+            measurements = None
+            
+            if pose_data and pose_data.get('keypoints'):
+                measurements = extract_body_measurements(pose_data['keypoints'])
+                pose_data['body_measurements'] = measurements
+        else:
+            # Fallback
+            pose_data = {
+                'keypoints': [],
+                'confidence': 0.5,
+                'method': 'fallback'
+            }
+        
+        # Clean up temp file
+        temp_path.unlink()
+        
+        return jsonify({
+            'success': True,
+            'pose_data': pose_data
+        })
+        
+    except Exception as e:
+        logger.error(f"Error detecting pose: {e}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/background-remove', methods=['POST'])
+def remove_image_background():
+    """Remove background from image"""
+    try:
+        if 'file' not in request.files:
+            return jsonify({'error': 'No file provided'}), 400
+        
+        file = request.files['file']
+        valid, message = validate_image(file)
+        
+        if not valid:
+            return jsonify({'error': message}), 400
+        
+        # Save temporarily
+        filename = secure_filename(file.filename)
+        temp_path = Config.UPLOAD_FOLDER / f"temp_{filename}"
+        file.save(str(temp_path))
+        
+        # Remove background
+        if ML_AVAILABLE:
+            output_path = remove_background(str(temp_path))
+        else:
+            # Fallback: return original
+            output_path = str(temp_path)
+        
+        # Return the file
+        output_filename = Path(output_path).name
+        
+        return jsonify({
+            'success': True,
+            'image_url': f'/api/uploads/{output_filename}',
+            'method': 'ml' if ML_AVAILABLE else 'fallback'
+        })
+        
+    except Exception as e:
+        logger.error(f"Error removing background: {e}")
         return jsonify({'error': str(e)}), 500
 
 @app.route('/api/uploads/<filename>')
