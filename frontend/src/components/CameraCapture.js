@@ -369,4 +369,3 @@ function CameraCapture({ onCapture }) {
 
 export default CameraCapture;
 
-export default CameraCapture;

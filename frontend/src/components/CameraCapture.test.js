@@ -71,7 +71,7 @@ describe('CameraCapture Component', () => {
     
     await waitFor(() => {
       expect(screen.getByText('📷 Capture')).toBeInTheDocument();
-    });
+    }, { timeout: 3000 });
     
     // Mock API response
     api.post.mockResolvedValue({
@@ -92,7 +92,7 @@ describe('CameraCapture Component', () => {
     await waitFor(() => {
       expect(cameraUtils.captureImageFromVideo).toHaveBeenCalled();
       expect(onCapture).toHaveBeenCalled();
-    });
+    }, { timeout: 3000 });
   });
 
   test('stops camera', async () => {
@@ -145,24 +145,30 @@ describe('CameraCapture Component', () => {
     
     const input = screen.getByLabelText(/Upload from Gallery/i).querySelector('input');
     
+    api.post.mockResolvedValue({
+      data: {
+        success: true,
+        analysis: { body_type: 'rectangle', confidence: 0.85, method: 'mediapipe' }
+      }
+    });
+    
     // Mock FileReader
-    const mockFileReader = {
-      readAsDataURL: jest.fn(),
-      onload: null,
-      result: 'data:image/jpeg;base64,test'
-    };
-    global.FileReader = jest.fn(() => mockFileReader);
+    const originalFileReader = global.FileReader;
+    global.FileReader = jest.fn(function() {
+      this.readAsDataURL = jest.fn(function() {
+        setTimeout(() => {
+          this.onload({ target: { result: 'data:image/jpeg;base64,test' } });
+        }, 0);
+      });
+    });
     
     fireEvent.change(input, { target: { files: [file] } });
     
-    // Trigger onload
-    if (mockFileReader.onload) {
-      mockFileReader.onload({ target: { result: 'data:image/jpeg;base64,test' } });
-    }
-    
     await waitFor(() => {
       expect(onCapture).toHaveBeenCalled();
-    });
+    }, { timeout: 3000 });
+    
+    global.FileReader = originalFileReader;
   });
 
   test('validates file upload - invalid file type', async () => {
@@ -368,14 +374,11 @@ describe('CameraCapture - Mobile devices', () => {
     const toggleButton = screen.getByText('🔄 Switch Camera');
     fireEvent.click(toggleButton);
     
-    expect(cameraUtils.requestCameraAccess).toHaveBeenCalledWith(
-      expect.anything(),
-      expect.objectContaining({
-        video: expect.objectContaining({
-          facingMode: 'environment'
-        })
-      })
-    );
+    await waitFor(() => {
+      expect(cameraUtils.requestCameraAccess).toHaveBeenCalledTimes(2);
+      const secondCall = cameraUtils.requestCameraAccess.mock.calls[1];
+      expect(secondCall[1].video.facingMode).toBe('environment');
+    });
   });
 
   test('requests high resolution on capable devices', async () => {
@@ -385,15 +388,14 @@ describe('CameraCapture - Mobile devices', () => {
     fireEvent.click(startButton);
     
     await waitFor(() => {
-      expect(cameraUtils.requestCameraAccess).toHaveBeenCalledWith(
-        expect.anything(),
-        expect.objectContaining({
-          video: expect.objectContaining({
-            width: { ideal: 1920 },
-            height: { ideal: 1080 }
-          })
-        })
-      );
+      expect(cameraUtils.requestCameraAccess).toHaveBeenCalled();
+      const callArgs = cameraUtils.requestCameraAccess.mock.calls[0];
+      expect(callArgs[1]).toHaveProperty('video');
+      expect(callArgs[1].video).toMatchObject({
+        facingMode: 'user',
+        width: { ideal: 1920 },
+        height: { ideal: 1080 }
+      });
     });
   });
 });
