@@ -1,0 +1,1555 @@
+{
+  "dataset_info": {
+    "name": "DeepFashion Category and Attribute Prediction Benchmark",
+    "description": "Licensed for academic use, 800,000+ fashion images",
+    "url": "http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html",
+    "citation": "Liu et al., DeepFashion: Powering Robust Clothes Recognition and Retrieval with Rich Annotations"
+  },
+  "total_products": 100,
+  "categories": [
+    "tops",
+    "bottoms",
+    "dresses",
+    "outerwear",
+    "shoes",
+    "bags",
+    "accessories"
+  ],
+  "attributes": {
+    "color": [
+      "black",
+      "white",
+      "red",
+      "blue",
+      "green",
+      "yellow",
+      "pink",
+      "gray",
+      "brown"
+    ],
+    "pattern": [
+      "solid",
+      "striped",
+      "floral",
+      "geometric",
+      "animal_print"
+    ],
+    "material": [
+      "cotton",
+      "denim",
+      "leather",
+      "silk",
+      "wool",
+      "synthetic"
+    ],
+    "style": [
+      "casual",
+      "formal",
+      "sporty",
+      "vintage",
+      "modern"
+    ]
+  },
+  "products": [
+    {
+      "id": "prod-0001",
+      "category": "tops",
+      "name": "Fashion Item 1",
+      "attributes": {
+        "color": "black",
+        "pattern": "solid",
+        "material": "cotton",
+        "style": "casual"
+      },
+      "price": 29.99,
+      "image_filename": "product_0001.jpg",
+      "description": "High-quality tops item",
+      "created_at": "2025-11-02T06:29:31.021205"
+    },
+    {
+      "id": "prod-0002",
+      "category": "bottoms",
+      "name": "Fashion Item 2",
+      "attributes": {
+        "color": "white",
+        "pattern": "striped",
+        "material": "denim",
+        "style": "formal"
+      },
+      "price": 35.49,
+      "image_filename": "product_0002.jpg",
+      "description": "High-quality bottoms item",
+      "created_at": "2025-11-02T06:29:31.021222"
+    },
+    {
+      "id": "prod-0003",
+      "category": "dresses",
+      "name": "Fashion Item 3",
+      "attributes": {
+        "color": "red",
+        "pattern": "floral",
+        "material": "leather",
+        "style": "sporty"
+      },
+      "price": 40.99,
+      "image_filename": "product_0003.jpg",
+      "description": "High-quality dresses item",
+      "created_at": "2025-11-02T06:29:31.021231"
+    },
+    {
+      "id": "prod-0004",
+      "category": "outerwear",
+      "name": "Fashion Item 4",
+      "attributes": {
+        "color": "blue",
+        "pattern": "geometric",
+        "material": "silk",
+        "style": "vintage"
+      },
+      "price": 46.49,
+      "image_filename": "product_0004.jpg",
+      "description": "High-quality outerwear item",
+      "created_at": "2025-11-02T06:29:31.021235"
+    },
+    {
+      "id": "prod-0005",
+      "category": "shoes",
+      "name": "Fashion Item 5",
+      "attributes": {
+        "color": "green",
+        "pattern": "animal_print",
+        "material": "wool",
+        "style": "modern"
+      },
+      "price": 51.99,
+      "image_filename": "product_0005.jpg",
+      "description": "High-quality shoes item",
+      "created_at": "2025-11-02T06:29:31.021239"
+    },
+    {
+      "id": "prod-0006",
+      "category": "bags",
+      "name": "Fashion Item 6",
+      "attributes": {
+        "color": "yellow",
+        "pattern": "solid",
+        "material": "synthetic",
+        "style": "casual"
+      },
+      "price": 57.49,
+      "image_filename": "product_0006.jpg",
+      "description": "High-quality bags item",
+      "created_at": "2025-11-02T06:29:31.021248"
+    },
+    {
+      "id": "prod-0007",
+      "category": "accessories",
+      "name": "Fashion Item 7",
+      "attributes": {
+        "color": "pink",
+        "pattern": "striped",
+        "material": "cotton",
+        "style": "formal"
+      },
+      "price": 62.99,
+      "image_filename": "product_0007.jpg",
+      "description": "High-quality accessories item",
+      "created_at": "2025-11-02T06:29:31.021251"
+    },
+    {
+      "id": "prod-0008",
+      "category": "tops",
+      "name": "Fashion Item 8",
+      "attributes": {
+        "color": "gray",
+        "pattern": "floral",
+        "material": "denim",
+        "style": "sporty"
+      },
+      "price": 68.49,
+      "image_filename": "product_0008.jpg",
+      "description": "High-quality tops item",
+      "created_at": "2025-11-02T06:29:31.021255"
+    },
+    {
+      "id": "prod-0009",
+      "category": "bottoms",
+      "name": "Fashion Item 9",
+      "attributes": {
+        "color": "brown",
+        "pattern": "geometric",
+        "material": "leather",
+        "style": "vintage"
+      },
+      "price": 73.99,
+      "image_filename": "product_0009.jpg",
+      "description": "High-quality bottoms item",
+      "created_at": "2025-11-02T06:29:31.021258"
+    },
+    {
+      "id": "prod-0010",
+      "category": "dresses",
+      "name": "Fashion Item 10",
+      "attributes": {
+        "color": "black",
+        "pattern": "animal_print",
+        "material": "silk",
+        "style": "modern"
+      },
+      "price": 79.49,
+      "image_filename": "product_0010.jpg",
+      "description": "High-quality dresses item",
+      "created_at": "2025-11-02T06:29:31.021262"
+    },
+    {
+      "id": "prod-0011",
+      "category": "outerwear",
+      "name": "Fashion Item 11",
+      "attributes": {
+        "color": "white",
+        "pattern": "solid",
+        "material": "wool",
+        "style": "casual"
+      },
+      "price": 84.99,
+      "image_filename": "product_0011.jpg",
+      "description": "High-quality outerwear item",
+      "created_at": "2025-11-02T06:29:31.021267"
+    },
+    {
+      "id": "prod-0012",
+      "category": "shoes",
+      "name": "Fashion Item 12",
+      "attributes": {
+        "color": "red",
+        "pattern": "striped",
+        "material": "synthetic",
+        "style": "formal"
+      },
+      "price": 90.49,
+      "image_filename": "product_0012.jpg",
+      "description": "High-quality shoes item",
+      "created_at": "2025-11-02T06:29:31.021271"
+    },
+    {
+      "id": "prod-0013",
+      "category": "bags",
+      "name": "Fashion Item 13",
+      "attributes": {
+        "color": "blue",
+        "pattern": "floral",
+        "material": "cotton",
+        "style": "sporty"
+      },
+      "price": 95.99,
+      "image_filename": "product_0013.jpg",
+      "description": "High-quality bags item",
+      "created_at": "2025-11-02T06:29:31.021274"
+    },
+    {
+      "id": "prod-0014",
+      "category": "accessories",
+      "name": "Fashion Item 14",
+      "attributes": {
+        "color": "green",
+        "pattern": "geometric",
+        "material": "denim",
+        "style": "vintage"
+      },
+      "price": 101.49,
+      "image_filename": "product_0014.jpg",
+      "description": "High-quality accessories item",
+      "created_at": "2025-11-02T06:29:31.021278"
+    },
+    {
+      "id": "prod-0015",
+      "category": "tops",
+      "name": "Fashion Item 15",
+      "attributes": {
+        "color": "yellow",
+        "pattern": "animal_print",
+        "material": "leather",
+        "style": "modern"
+      },
+      "price": 106.99,
+      "image_filename": "product_0015.jpg",
+      "description": "High-quality tops item",
+      "created_at": "2025-11-02T06:29:31.021281"
+    },
+    {
+      "id": "prod-0016",
+      "category": "bottoms",
+      "name": "Fashion Item 16",
+      "attributes": {
+        "color": "pink",
+        "pattern": "solid",
+        "material": "silk",
+        "style": "casual"
+      },
+      "price": 112.49,
+      "image_filename": "product_0016.jpg",
+      "description": "High-quality bottoms item",
+      "created_at": "2025-11-02T06:29:31.021285"
+    },
+    {
+      "id": "prod-0017",
+      "category": "dresses",
+      "name": "Fashion Item 17",
+      "attributes": {
+        "color": "gray",
+        "pattern": "striped",
+        "material": "wool",
+        "style": "formal"
+      },
+      "price": 117.99,
+      "image_filename": "product_0017.jpg",
+      "description": "High-quality dresses item",
+      "created_at": "2025-11-02T06:29:31.021288"
+    },
+    {
+      "id": "prod-0018",
+      "category": "outerwear",
+      "name": "Fashion Item 18",
+      "attributes": {
+        "color": "brown",
+        "pattern": "floral",
+        "material": "synthetic",
+        "style": "sporty"
+      },
+      "price": 123.49,
+      "image_filename": "product_0018.jpg",
+      "description": "High-quality outerwear item",
+      "created_at": "2025-11-02T06:29:31.021291"
+    },
+    {
+      "id": "prod-0019",
+      "category": "shoes",
+      "name": "Fashion Item 19",
+      "attributes": {
+        "color": "black",
+        "pattern": "geometric",
+        "material": "cotton",
+        "style": "vintage"
+      },
+      "price": 128.99,
+      "image_filename": "product_0019.jpg",
+      "description": "High-quality shoes item",
+      "created_at": "2025-11-02T06:29:31.021295"
+    },
+    {
+      "id": "prod-0020",
+      "category": "bags",
+      "name": "Fashion Item 20",
+      "attributes": {
+        "color": "white",
+        "pattern": "animal_print",
+        "material": "denim",
+        "style": "modern"
+      },
+      "price": 134.49,
+      "image_filename": "product_0020.jpg",
+      "description": "High-quality bags item",
+      "created_at": "2025-11-02T06:29:31.021298"
+    },
+    {
+      "id": "prod-0021",
+      "category": "accessories",
+      "name": "Fashion Item 21",
+      "attributes": {
+        "color": "red",
+        "pattern": "solid",
+        "material": "leather",
+        "style": "casual"
+      },
+      "price": 139.99,
+      "image_filename": "product_0021.jpg",
+      "description": "High-quality accessories item",
+      "created_at": "2025-11-02T06:29:31.021301"
+    },
+    {
+      "id": "prod-0022",
+      "category": "tops",
+      "name": "Fashion Item 22",
+      "attributes": {
+        "color": "blue",
+        "pattern": "striped",
+        "material": "silk",
+        "style": "formal"
+      },
+      "price": 145.49,
+      "image_filename": "product_0022.jpg",
+      "description": "High-quality tops item",
+      "created_at": "2025-11-02T06:29:31.021308"
+    },
+    {
+      "id": "prod-0023",
+      "category": "bottoms",
+      "name": "Fashion Item 23",
+      "attributes": {
+        "color": "green",
+        "pattern": "floral",
+        "material": "wool",
+        "style": "sporty"
+      },
+      "price": 150.99,
+      "image_filename": "product_0023.jpg",
+      "description": "High-quality bottoms item",
+      "created_at": "2025-11-02T06:29:31.021312"
+    },
+    {
+      "id": "prod-0024",
+      "category": "dresses",
+      "name": "Fashion Item 24",
+      "attributes": {
+        "color": "yellow",
+        "pattern": "geometric",
+        "material": "synthetic",
+        "style": "vintage"
+      },
+      "price": 156.49,
+      "image_filename": "product_0024.jpg",
+      "description": "High-quality dresses item",
+      "created_at": "2025-11-02T06:29:31.021315"
+    },
+    {
+      "id": "prod-0025",
+      "category": "outerwear",
+      "name": "Fashion Item 25",
+      "attributes": {
+        "color": "pink",
+        "pattern": "animal_print",
+        "material": "cotton",
+        "style": "modern"
+      },
+      "price": 161.99,
+      "image_filename": "product_0025.jpg",
+      "description": "High-quality outerwear item",
+      "created_at": "2025-11-02T06:29:31.021320"
+    },
+    {
+      "id": "prod-0026",
+      "category": "shoes",
+      "name": "Fashion Item 26",
+      "attributes": {
+        "color": "gray",
+        "pattern": "solid",
+        "material": "denim",
+        "style": "casual"
+      },
+      "price": 167.49,
+      "image_filename": "product_0026.jpg",
+      "description": "High-quality shoes item",
+      "created_at": "2025-11-02T06:29:31.021323"
+    },
+    {
+      "id": "prod-0027",
+      "category": "bags",
+      "name": "Fashion Item 27",
+      "attributes": {
+        "color": "brown",
+        "pattern": "striped",
+        "material": "leather",
+        "style": "formal"
+      },
+      "price": 172.99,
+      "image_filename": "product_0027.jpg",
+      "description": "High-quality bags item",
+      "created_at": "2025-11-02T06:29:31.021327"
+    },
+    {
+      "id": "prod-0028",
+      "category": "accessories",
+      "name": "Fashion Item 28",
+      "attributes": {
+        "color": "black",
+        "pattern": "floral",
+        "material": "silk",
+        "style": "sporty"
+      },
+      "price": 178.49,
+      "image_filename": "product_0028.jpg",
+      "description": "High-quality accessories item",
+      "created_at": "2025-11-02T06:29:31.021350"
+    },
+    {
+      "id": "prod-0029",
+      "category": "tops",
+      "name": "Fashion Item 29",
+      "attributes": {
+        "color": "white",
+        "pattern": "geometric",
+        "material": "wool",
+        "style": "vintage"
+      },
+      "price": 183.99,
+      "image_filename": "product_0029.jpg",
+      "description": "High-quality tops item",
+      "created_at": "2025-11-02T06:29:31.021356"
+    },
+    {
+      "id": "prod-0030",
+      "category": "bottoms",
+      "name": "Fashion Item 30",
+      "attributes": {
+        "color": "red",
+        "pattern": "animal_print",
+        "material": "synthetic",
+        "style": "modern"
+      },
+      "price": 189.49,
+      "image_filename": "product_0030.jpg",
+      "description": "High-quality bottoms item",
+      "created_at": "2025-11-02T06:29:31.021360"
+    },
+    {
+      "id": "prod-0031",
+      "category": "dresses",
+      "name": "Fashion Item 31",
+      "attributes": {
+        "color": "blue",
+        "pattern": "solid",
+        "material": "cotton",
+        "style": "casual"
+      },
+      "price": 194.99,
+      "image_filename": "product_0031.jpg",
+      "description": "High-quality dresses item",
+      "created_at": "2025-11-02T06:29:31.021363"
+    },
+    {
+      "id": "prod-0032",
+      "category": "outerwear",
+      "name": "Fashion Item 32",
+      "attributes": {
+        "color": "green",
+        "pattern": "striped",
+        "material": "denim",
+        "style": "formal"
+      },
+      "price": 200.49,
+      "image_filename": "product_0032.jpg",
+      "description": "High-quality outerwear item",
+      "created_at": "2025-11-02T06:29:31.021367"
+    },
+    {
+      "id": "prod-0033",
+      "category": "shoes",
+      "name": "Fashion Item 33",
+      "attributes": {
+        "color": "yellow",
+        "pattern": "floral",
+        "material": "leather",
+        "style": "sporty"
+      },
+      "price": 205.99,
+      "image_filename": "product_0033.jpg",
+      "description": "High-quality shoes item",
+      "created_at": "2025-11-02T06:29:31.021370"
+    },
+    {
+      "id": "prod-0034",
+      "category": "bags",
+      "name": "Fashion Item 34",
+      "attributes": {
+        "color": "pink",
+        "pattern": "geometric",
+        "material": "silk",
+        "style": "vintage"
+      },
+      "price": 211.49,
+      "image_filename": "product_0034.jpg",
+      "description": "High-quality bags item",
+      "created_at": "2025-11-02T06:29:31.021375"
+    },
+    {
+      "id": "prod-0035",
+      "category": "accessories",
+      "name": "Fashion Item 35",
+      "attributes": {
+        "color": "gray",
+        "pattern": "animal_print",
+        "material": "wool",
+        "style": "modern"
+      },
+      "price": 216.99,
+      "image_filename": "product_0035.jpg",
+      "description": "High-quality accessories item",
+      "created_at": "2025-11-02T06:29:31.021379"
+    },
+    {
+      "id": "prod-0036",
+      "category": "tops",
+      "name": "Fashion Item 36",
+      "attributes": {
+        "color": "brown",
+        "pattern": "solid",
+        "material": "synthetic",
+        "style": "casual"
+      },
+      "price": 222.49,
+      "image_filename": "product_0036.jpg",
+      "description": "High-quality tops item",
+      "created_at": "2025-11-02T06:29:31.021382"
+    },
+    {
+      "id": "prod-0037",
+      "category": "bottoms",
+      "name": "Fashion Item 37",
+      "attributes": {
+        "color": "black",
+        "pattern": "striped",
+        "material": "cotton",
+        "style": "formal"
+      },
+      "price": 227.99,
+      "image_filename": "product_0037.jpg",
+      "description": "High-quality bottoms item",
+      "created_at": "2025-11-02T06:29:31.021385"
+    },
+    {
+      "id": "prod-0038",
+      "category": "dresses",
+      "name": "Fashion Item 38",
+      "attributes": {
+        "color": "white",
+        "pattern": "floral",
+        "material": "denim",
+        "style": "sporty"
+      },
+      "price": 233.49,
+      "image_filename": "product_0038.jpg",
+      "description": "High-quality dresses item",
+      "created_at": "2025-11-02T06:29:31.021388"
+    },
+    {
+      "id": "prod-0039",
+      "category": "outerwear",
+      "name": "Fashion Item 39",
+      "attributes": {
+        "color": "red",
+        "pattern": "geometric",
+        "material": "leather",
+        "style": "vintage"
+      },
+      "price": 238.99,
+      "image_filename": "product_0039.jpg",
+      "description": "High-quality outerwear item",
+      "created_at": "2025-11-02T06:29:31.021392"
+    },
+    {
+      "id": "prod-0040",
+      "category": "shoes",
+      "name": "Fashion Item 40",
+      "attributes": {
+        "color": "blue",
+        "pattern": "animal_print",
+        "material": "silk",
+        "style": "modern"
+      },
+      "price": 244.49,
+      "image_filename": "product_0040.jpg",
+      "description": "High-quality shoes item",
+      "created_at": "2025-11-02T06:29:31.021395"
+    },
+    {
+      "id": "prod-0041",
+      "category": "bags",
+      "name": "Fashion Item 41",
+      "attributes": {
+        "color": "green",
+        "pattern": "solid",
+        "material": "wool",
+        "style": "casual"
+      },
+      "price": 249.99,
+      "image_filename": "product_0041.jpg",
+      "description": "High-quality bags item",
+      "created_at": "2025-11-02T06:29:31.021398"
+    },
+    {
+      "id": "prod-0042",
+      "category": "accessories",
+      "name": "Fashion Item 42",
+      "attributes": {
+        "color": "yellow",
+        "pattern": "striped",
+        "material": "synthetic",
+        "style": "formal"
+      },
+      "price": 255.49,
+      "image_filename": "product_0042.jpg",
+      "description": "High-quality accessories item",
+      "created_at": "2025-11-02T06:29:31.021402"
+    },
+    {
+      "id": "prod-0043",
+      "category": "tops",
+      "name": "Fashion Item 43",
+      "attributes": {
+        "color": "pink",
+        "pattern": "floral",
+        "material": "cotton",
+        "style": "sporty"
+      },
+      "price": 260.99,
+      "image_filename": "product_0043.jpg",
+      "description": "High-quality tops item",
+      "created_at": "2025-11-02T06:29:31.021405"
+    },
+    {
+      "id": "prod-0044",
+      "category": "bottoms",
+      "name": "Fashion Item 44",
+      "attributes": {
+        "color": "gray",
+        "pattern": "geometric",
+        "material": "denim",
+        "style": "vintage"
+      },
+      "price": 266.49,
+      "image_filename": "product_0044.jpg",
+      "description": "High-quality bottoms item",
+      "created_at": "2025-11-02T06:29:31.021408"
+    },
+    {
+      "id": "prod-0045",
+      "category": "dresses",
+      "name": "Fashion Item 45",
+      "attributes": {
+        "color": "brown",
+        "pattern": "animal_print",
+        "material": "leather",
+        "style": "modern"
+      },
+      "price": 271.99,
+      "image_filename": "product_0045.jpg",
+      "description": "High-quality dresses item",
+      "created_at": "2025-11-02T06:29:31.021413"
+    },
+    {
+      "id": "prod-0046",
+      "category": "outerwear",
+      "name": "Fashion Item 46",
+      "attributes": {
+        "color": "black",
+        "pattern": "solid",
+        "material": "silk",
+        "style": "casual"
+      },
+      "price": 277.49,
+      "image_filename": "product_0046.jpg",
+      "description": "High-quality outerwear item",
+      "created_at": "2025-11-02T06:29:31.021419"
+    },
+    {
+      "id": "prod-0047",
+      "category": "shoes",
+      "name": "Fashion Item 47",
+      "attributes": {
+        "color": "white",
+        "pattern": "striped",
+        "material": "wool",
+        "style": "formal"
+      },
+      "price": 282.99,
+      "image_filename": "product_0047.jpg",
+      "description": "High-quality shoes item",
+      "created_at": "2025-11-02T06:29:31.021422"
+    },
+    {
+      "id": "prod-0048",
+      "category": "bags",
+      "name": "Fashion Item 48",
+      "attributes": {
+        "color": "red",
+        "pattern": "floral",
+        "material": "synthetic",
+        "style": "sporty"
+      },
+      "price": 288.49,
+      "image_filename": "product_0048.jpg",
+      "description": "High-quality bags item",
+      "created_at": "2025-11-02T06:29:31.021425"
+    },
+    {
+      "id": "prod-0049",
+      "category": "accessories",
+      "name": "Fashion Item 49",
+      "attributes": {
+        "color": "blue",
+        "pattern": "geometric",
+        "material": "cotton",
+        "style": "vintage"
+      },
+      "price": 293.99,
+      "image_filename": "product_0049.jpg",
+      "description": "High-quality accessories item",
+      "created_at": "2025-11-02T06:29:31.021429"
+    },
+    {
+      "id": "prod-0050",
+      "category": "tops",
+      "name": "Fashion Item 50",
+      "attributes": {
+        "color": "green",
+        "pattern": "animal_print",
+        "material": "denim",
+        "style": "modern"
+      },
+      "price": 299.49,
+      "image_filename": "product_0050.jpg",
+      "description": "High-quality tops item",
+      "created_at": "2025-11-02T06:29:31.021434"
+    },
+    {
+      "id": "prod-0051",
+      "category": "bottoms",
+      "name": "Fashion Item 51",
+      "attributes": {
+        "color": "yellow",
+        "pattern": "solid",
+        "material": "leather",
+        "style": "casual"
+      },
+      "price": 304.99,
+      "image_filename": "product_0051.jpg",
+      "description": "High-quality bottoms item",
+      "created_at": "2025-11-02T06:29:31.021438"
+    },
+    {
+      "id": "prod-0052",
+      "category": "dresses",
+      "name": "Fashion Item 52",
+      "attributes": {
+        "color": "pink",
+        "pattern": "striped",
+        "material": "silk",
+        "style": "formal"
+      },
+      "price": 310.49,
+      "image_filename": "product_0052.jpg",
+      "description": "High-quality dresses item",
+      "created_at": "2025-11-02T06:29:31.021441"
+    },
+    {
+      "id": "prod-0053",
+      "category": "outerwear",
+      "name": "Fashion Item 53",
+      "attributes": {
+        "color": "gray",
+        "pattern": "floral",
+        "material": "wool",
+        "style": "sporty"
+      },
+      "price": 315.99,
+      "image_filename": "product_0053.jpg",
+      "description": "High-quality outerwear item",
+      "created_at": "2025-11-02T06:29:31.021445"
+    },
+    {
+      "id": "prod-0054",
+      "category": "shoes",
+      "name": "Fashion Item 54",
+      "attributes": {
+        "color": "brown",
+        "pattern": "geometric",
+        "material": "synthetic",
+        "style": "vintage"
+      },
+      "price": 321.49,
+      "image_filename": "product_0054.jpg",
+      "description": "High-quality shoes item",
+      "created_at": "2025-11-02T06:29:31.021448"
+    },
+    {
+      "id": "prod-0055",
+      "category": "bags",
+      "name": "Fashion Item 55",
+      "attributes": {
+        "color": "black",
+        "pattern": "animal_print",
+        "material": "cotton",
+        "style": "modern"
+      },
+      "price": 326.99,
+      "image_filename": "product_0055.jpg",
+      "description": "High-quality bags item",
+      "created_at": "2025-11-02T06:29:31.021451"
+    },
+    {
+      "id": "prod-0056",
+      "category": "accessories",
+      "name": "Fashion Item 56",
+      "attributes": {
+        "color": "white",
+        "pattern": "solid",
+        "material": "denim",
+        "style": "casual"
+      },
+      "price": 332.49,
+      "image_filename": "product_0056.jpg",
+      "description": "High-quality accessories item",
+      "created_at": "2025-11-02T06:29:31.021511"
+    },
+    {
+      "id": "prod-0057",
+      "category": "tops",
+      "name": "Fashion Item 57",
+      "attributes": {
+        "color": "red",
+        "pattern": "striped",
+        "material": "leather",
+        "style": "formal"
+      },
+      "price": 337.99,
+      "image_filename": "product_0057.jpg",
+      "description": "High-quality tops item",
+      "created_at": "2025-11-02T06:29:31.021516"
+    },
+    {
+      "id": "prod-0058",
+      "category": "bottoms",
+      "name": "Fashion Item 58",
+      "attributes": {
+        "color": "blue",
+        "pattern": "floral",
+        "material": "silk",
+        "style": "sporty"
+      },
+      "price": 343.49,
+      "image_filename": "product_0058.jpg",
+      "description": "High-quality bottoms item",
+      "created_at": "2025-11-02T06:29:31.021522"
+    },
+    {
+      "id": "prod-0059",
+      "category": "dresses",
+      "name": "Fashion Item 59",
+      "attributes": {
+        "color": "green",
+        "pattern": "geometric",
+        "material": "wool",
+        "style": "vintage"
+      },
+      "price": 348.99,
+      "image_filename": "product_0059.jpg",
+      "description": "High-quality dresses item",
+      "created_at": "2025-11-02T06:29:31.021526"
+    },
+    {
+      "id": "prod-0060",
+      "category": "outerwear",
+      "name": "Fashion Item 60",
+      "attributes": {
+        "color": "yellow",
+        "pattern": "animal_print",
+        "material": "synthetic",
+        "style": "modern"
+      },
+      "price": 354.49,
+      "image_filename": "product_0060.jpg",
+      "description": "High-quality outerwear item",
+      "created_at": "2025-11-02T06:29:31.021531"
+    },
+    {
+      "id": "prod-0061",
+      "category": "shoes",
+      "name": "Fashion Item 61",
+      "attributes": {
+        "color": "pink",
+        "pattern": "solid",
+        "material": "cotton",
+        "style": "casual"
+      },
+      "price": 359.99,
+      "image_filename": "product_0061.jpg",
+      "description": "High-quality shoes item",
+      "created_at": "2025-11-02T06:29:31.021537"
+    },
+    {
+      "id": "prod-0062",
+      "category": "bags",
+      "name": "Fashion Item 62",
+      "attributes": {
+        "color": "gray",
+        "pattern": "striped",
+        "material": "denim",
+        "style": "formal"
+      },
+      "price": 365.49,
+      "image_filename": "product_0062.jpg",
+      "description": "High-quality bags item",
+      "created_at": "2025-11-02T06:29:31.021540"
+    },
+    {
+      "id": "prod-0063",
+      "category": "accessories",
+      "name": "Fashion Item 63",
+      "attributes": {
+        "color": "brown",
+        "pattern": "floral",
+        "material": "leather",
+        "style": "sporty"
+      },
+      "price": 370.99,
+      "image_filename": "product_0063.jpg",
+      "description": "High-quality accessories item",
+      "created_at": "2025-11-02T06:29:31.021543"
+    },
+    {
+      "id": "prod-0064",
+      "category": "tops",
+      "name": "Fashion Item 64",
+      "attributes": {
+        "color": "black",
+        "pattern": "geometric",
+        "material": "silk",
+        "style": "vintage"
+      },
+      "price": 376.49,
+      "image_filename": "product_0064.jpg",
+      "description": "High-quality tops item",
+      "created_at": "2025-11-02T06:29:31.021548"
+    },
+    {
+      "id": "prod-0065",
+      "category": "bottoms",
+      "name": "Fashion Item 65",
+      "attributes": {
+        "color": "white",
+        "pattern": "animal_print",
+        "material": "wool",
+        "style": "modern"
+      },
+      "price": 381.99,
+      "image_filename": "product_0065.jpg",
+      "description": "High-quality bottoms item",
+      "created_at": "2025-11-02T06:29:31.021551"
+    },
+    {
+      "id": "prod-0066",
+      "category": "dresses",
+      "name": "Fashion Item 66",
+      "attributes": {
+        "color": "red",
+        "pattern": "solid",
+        "material": "synthetic",
+        "style": "casual"
+      },
+      "price": 387.49,
+      "image_filename": "product_0066.jpg",
+      "description": "High-quality dresses item",
+      "created_at": "2025-11-02T06:29:31.021555"
+    },
+    {
+      "id": "prod-0067",
+      "category": "outerwear",
+      "name": "Fashion Item 67",
+      "attributes": {
+        "color": "blue",
+        "pattern": "striped",
+        "material": "cotton",
+        "style": "formal"
+      },
+      "price": 392.99,
+      "image_filename": "product_0067.jpg",
+      "description": "High-quality outerwear item",
+      "created_at": "2025-11-02T06:29:31.021558"
+    },
+    {
+      "id": "prod-0068",
+      "category": "shoes",
+      "name": "Fashion Item 68",
+      "attributes": {
+        "color": "green",
+        "pattern": "floral",
+        "material": "denim",
+        "style": "sporty"
+      },
+      "price": 398.49,
+      "image_filename": "product_0068.jpg",
+      "description": "High-quality shoes item",
+      "created_at": "2025-11-02T06:29:31.021561"
+    },
+    {
+      "id": "prod-0069",
+      "category": "bags",
+      "name": "Fashion Item 69",
+      "attributes": {
+        "color": "yellow",
+        "pattern": "geometric",
+        "material": "leather",
+        "style": "vintage"
+      },
+      "price": 403.99,
+      "image_filename": "product_0069.jpg",
+      "description": "High-quality bags item",
+      "created_at": "2025-11-02T06:29:31.021566"
+    },
+    {
+      "id": "prod-0070",
+      "category": "accessories",
+      "name": "Fashion Item 70",
+      "attributes": {
+        "color": "pink",
+        "pattern": "animal_print",
+        "material": "silk",
+        "style": "modern"
+      },
+      "price": 409.49,
+      "image_filename": "product_0070.jpg",
+      "description": "High-quality accessories item",
+      "created_at": "2025-11-02T06:29:31.021570"
+    },
+    {
+      "id": "prod-0071",
+      "category": "tops",
+      "name": "Fashion Item 71",
+      "attributes": {
+        "color": "gray",
+        "pattern": "solid",
+        "material": "wool",
+        "style": "casual"
+      },
+      "price": 414.99,
+      "image_filename": "product_0071.jpg",
+      "description": "High-quality tops item",
+      "created_at": "2025-11-02T06:29:31.021573"
+    },
+    {
+      "id": "prod-0072",
+      "category": "bottoms",
+      "name": "Fashion Item 72",
+      "attributes": {
+        "color": "brown",
+        "pattern": "striped",
+        "material": "synthetic",
+        "style": "formal"
+      },
+      "price": 420.49,
+      "image_filename": "product_0072.jpg",
+      "description": "High-quality bottoms item",
+      "created_at": "2025-11-02T06:29:31.021576"
+    },
+    {
+      "id": "prod-0073",
+      "category": "dresses",
+      "name": "Fashion Item 73",
+      "attributes": {
+        "color": "black",
+        "pattern": "floral",
+        "material": "cotton",
+        "style": "sporty"
+      },
+      "price": 425.99,
+      "image_filename": "product_0073.jpg",
+      "description": "High-quality dresses item",
+      "created_at": "2025-11-02T06:29:31.021580"
+    },
+    {
+      "id": "prod-0074",
+      "category": "outerwear",
+      "name": "Fashion Item 74",
+      "attributes": {
+        "color": "white",
+        "pattern": "geometric",
+        "material": "denim",
+        "style": "vintage"
+      },
+      "price": 431.49,
+      "image_filename": "product_0074.jpg",
+      "description": "High-quality outerwear item",
+      "created_at": "2025-11-02T06:29:31.021583"
+    },
+    {
+      "id": "prod-0075",
+      "category": "shoes",
+      "name": "Fashion Item 75",
+      "attributes": {
+        "color": "red",
+        "pattern": "animal_print",
+        "material": "leather",
+        "style": "modern"
+      },
+      "price": 436.99,
+      "image_filename": "product_0075.jpg",
+      "description": "High-quality shoes item",
+      "created_at": "2025-11-02T06:29:31.021586"
+    },
+    {
+      "id": "prod-0076",
+      "category": "bags",
+      "name": "Fashion Item 76",
+      "attributes": {
+        "color": "blue",
+        "pattern": "solid",
+        "material": "silk",
+        "style": "casual"
+      },
+      "price": 442.49,
+      "image_filename": "product_0076.jpg",
+      "description": "High-quality bags item",
+      "created_at": "2025-11-02T06:29:31.021589"
+    },
+    {
+      "id": "prod-0077",
+      "category": "accessories",
+      "name": "Fashion Item 77",
+      "attributes": {
+        "color": "green",
+        "pattern": "striped",
+        "material": "wool",
+        "style": "formal"
+      },
+      "price": 447.99,
+      "image_filename": "product_0077.jpg",
+      "description": "High-quality accessories item",
+      "created_at": "2025-11-02T06:29:31.021593"
+    },
+    {
+      "id": "prod-0078",
+      "category": "tops",
+      "name": "Fashion Item 78",
+      "attributes": {
+        "color": "yellow",
+        "pattern": "floral",
+        "material": "synthetic",
+        "style": "sporty"
+      },
+      "price": 453.49,
+      "image_filename": "product_0078.jpg",
+      "description": "High-quality tops item",
+      "created_at": "2025-11-02T06:29:31.021596"
+    },
+    {
+      "id": "prod-0079",
+      "category": "bottoms",
+      "name": "Fashion Item 79",
+      "attributes": {
+        "color": "pink",
+        "pattern": "geometric",
+        "material": "cotton",
+        "style": "vintage"
+      },
+      "price": 458.99,
+      "image_filename": "product_0079.jpg",
+      "description": "High-quality bottoms item",
+      "created_at": "2025-11-02T06:29:31.021600"
+    },
+    {
+      "id": "prod-0080",
+      "category": "dresses",
+      "name": "Fashion Item 80",
+      "attributes": {
+        "color": "gray",
+        "pattern": "animal_print",
+        "material": "denim",
+        "style": "modern"
+      },
+      "price": 464.49,
+      "image_filename": "product_0080.jpg",
+      "description": "High-quality dresses item",
+      "created_at": "2025-11-02T06:29:31.021603"
+    },
+    {
+      "id": "prod-0081",
+      "category": "outerwear",
+      "name": "Fashion Item 81",
+      "attributes": {
+        "color": "brown",
+        "pattern": "solid",
+        "material": "leather",
+        "style": "casual"
+      },
+      "price": 469.99,
+      "image_filename": "product_0081.jpg",
+      "description": "High-quality outerwear item",
+      "created_at": "2025-11-02T06:29:31.021608"
+    },
+    {
+      "id": "prod-0082",
+      "category": "shoes",
+      "name": "Fashion Item 82",
+      "attributes": {
+        "color": "black",
+        "pattern": "striped",
+        "material": "silk",
+        "style": "formal"
+      },
+      "price": 475.49,
+      "image_filename": "product_0082.jpg",
+      "description": "High-quality shoes item",
+      "created_at": "2025-11-02T06:29:31.021611"
+    },
+    {
+      "id": "prod-0083",
+      "category": "bags",
+      "name": "Fashion Item 83",
+      "attributes": {
+        "color": "white",
+        "pattern": "floral",
+        "material": "wool",
+        "style": "sporty"
+      },
+      "price": 480.99,
+      "image_filename": "product_0083.jpg",
+      "description": "High-quality bags item",
+      "created_at": "2025-11-02T06:29:31.021614"
+    },
+    {
+      "id": "prod-0084",
+      "category": "accessories",
+      "name": "Fashion Item 84",
+      "attributes": {
+        "color": "red",
+        "pattern": "geometric",
+        "material": "synthetic",
+        "style": "vintage"
+      },
+      "price": 486.49,
+      "image_filename": "product_0084.jpg",
+      "description": "High-quality accessories item",
+      "created_at": "2025-11-02T06:29:31.021620"
+    },
+    {
+      "id": "prod-0085",
+      "category": "tops",
+      "name": "Fashion Item 85",
+      "attributes": {
+        "color": "blue",
+        "pattern": "animal_print",
+        "material": "cotton",
+        "style": "modern"
+      },
+      "price": 491.99,
+      "image_filename": "product_0085.jpg",
+      "description": "High-quality tops item",
+      "created_at": "2025-11-02T06:29:31.021623"
+    },
+    {
+      "id": "prod-0086",
+      "category": "bottoms",
+      "name": "Fashion Item 86",
+      "attributes": {
+        "color": "green",
+        "pattern": "solid",
+        "material": "denim",
+        "style": "casual"
+      },
+      "price": 497.49,
+      "image_filename": "product_0086.jpg",
+      "description": "High-quality bottoms item",
+      "created_at": "2025-11-02T06:29:31.021626"
+    },
+    {
+      "id": "prod-0087",
+      "category": "dresses",
+      "name": "Fashion Item 87",
+      "attributes": {
+        "color": "yellow",
+        "pattern": "striped",
+        "material": "leather",
+        "style": "formal"
+      },
+      "price": 502.99,
+      "image_filename": "product_0087.jpg",
+      "description": "High-quality dresses item",
+      "created_at": "2025-11-02T06:29:31.021629"
+    },
+    {
+      "id": "prod-0088",
+      "category": "outerwear",
+      "name": "Fashion Item 88",
+      "attributes": {
+        "color": "pink",
+        "pattern": "floral",
+        "material": "silk",
+        "style": "sporty"
+      },
+      "price": 508.49,
+      "image_filename": "product_0088.jpg",
+      "description": "High-quality outerwear item",
+      "created_at": "2025-11-02T06:29:31.021633"
+    },
+    {
+      "id": "prod-0089",
+      "category": "shoes",
+      "name": "Fashion Item 89",
+      "attributes": {
+        "color": "gray",
+        "pattern": "geometric",
+        "material": "wool",
+        "style": "vintage"
+      },
+      "price": 513.99,
+      "image_filename": "product_0089.jpg",
+      "description": "High-quality shoes item",
+      "created_at": "2025-11-02T06:29:31.021636"
+    },
+    {
+      "id": "prod-0090",
+      "category": "bags",
+      "name": "Fashion Item 90",
+      "attributes": {
+        "color": "brown",
+        "pattern": "animal_print",
+        "material": "synthetic",
+        "style": "modern"
+      },
+      "price": 519.49,
+      "image_filename": "product_0090.jpg",
+      "description": "High-quality bags item",
+      "created_at": "2025-11-02T06:29:31.021639"
+    },
+    {
+      "id": "prod-0091",
+      "category": "accessories",
+      "name": "Fashion Item 91",
+      "attributes": {
+        "color": "black",
+        "pattern": "solid",
+        "material": "cotton",
+        "style": "casual"
+      },
+      "price": 524.99,
+      "image_filename": "product_0091.jpg",
+      "description": "High-quality accessories item",
+      "created_at": "2025-11-02T06:29:31.021643"
+    },
+    {
+      "id": "prod-0092",
+      "category": "tops",
+      "name": "Fashion Item 92",
+      "attributes": {
+        "color": "white",
+        "pattern": "striped",
+        "material": "denim",
+        "style": "formal"
+      },
+      "price": 530.49,
+      "image_filename": "product_0092.jpg",
+      "description": "High-quality tops item",
+      "created_at": "2025-11-02T06:29:31.021648"
+    },
+    {
+      "id": "prod-0093",
+      "category": "bottoms",
+      "name": "Fashion Item 93",
+      "attributes": {
+        "color": "red",
+        "pattern": "floral",
+        "material": "leather",
+        "style": "sporty"
+      },
+      "price": 535.99,
+      "image_filename": "product_0093.jpg",
+      "description": "High-quality bottoms item",
+      "created_at": "2025-11-02T06:29:31.021655"
+    },
+    {
+      "id": "prod-0094",
+      "category": "dresses",
+      "name": "Fashion Item 94",
+      "attributes": {
+        "color": "blue",
+        "pattern": "geometric",
+        "material": "silk",
+        "style": "vintage"
+      },
+      "price": 541.49,
+      "image_filename": "product_0094.jpg",
+      "description": "High-quality dresses item",
+      "created_at": "2025-11-02T06:29:31.021659"
+    },
+    {
+      "id": "prod-0095",
+      "category": "outerwear",
+      "name": "Fashion Item 95",
+      "attributes": {
+        "color": "green",
+        "pattern": "animal_print",
+        "material": "wool",
+        "style": "modern"
+      },
+      "price": 546.99,
+      "image_filename": "product_0095.jpg",
+      "description": "High-quality outerwear item",
+      "created_at": "2025-11-02T06:29:31.021662"
+    },
+    {
+      "id": "prod-0096",
+      "category": "shoes",
+      "name": "Fashion Item 96",
+      "attributes": {
+        "color": "yellow",
+        "pattern": "solid",
+        "material": "synthetic",
+        "style": "casual"
+      },
+      "price": 552.49,
+      "image_filename": "product_0096.jpg",
+      "description": "High-quality shoes item",
+      "created_at": "2025-11-02T06:29:31.021665"
+    },
+    {
+      "id": "prod-0097",
+      "category": "bags",
+      "name": "Fashion Item 97",
+      "attributes": {
+        "color": "pink",
+        "pattern": "striped",
+        "material": "cotton",
+        "style": "formal"
+      },
+      "price": 557.99,
+      "image_filename": "product_0097.jpg",
+      "description": "High-quality bags item",
+      "created_at": "2025-11-02T06:29:31.021669"
+    },
+    {
+      "id": "prod-0098",
+      "category": "accessories",
+      "name": "Fashion Item 98",
+      "attributes": {
+        "color": "gray",
+        "pattern": "floral",
+        "material": "denim",
+        "style": "sporty"
+      },
+      "price": 563.49,
+      "image_filename": "product_0098.jpg",
+      "description": "High-quality accessories item",
+      "created_at": "2025-11-02T06:29:31.021672"
+    },
+    {
+      "id": "prod-0099",
+      "category": "tops",
+      "name": "Fashion Item 99",
+      "attributes": {
+        "color": "brown",
+        "pattern": "geometric",
+        "material": "leather",
+        "style": "vintage"
+      },
+      "price": 568.99,
+      "image_filename": "product_0099.jpg",
+      "description": "High-quality tops item",
+      "created_at": "2025-11-02T06:29:31.021675"
+    },
+    {
+      "id": "prod-0100",
+      "category": "bottoms",
+      "name": "Fashion Item 100",
+      "attributes": {
+        "color": "black",
+        "pattern": "animal_print",
+        "material": "silk",
+        "style": "modern"
+      },
+      "price": 574.49,
+      "image_filename": "product_0100.jpg",
+      "description": "High-quality bottoms item",
+      "created_at": "2025-11-02T06:29:31.021679"
+    }
+  ]
+}
