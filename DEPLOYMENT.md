@@ -101,11 +101,16 @@ db.recommendations.createIndex({ "created_at": -1 })
 
 #### 1. Prepare Backend
 1. Ensure `requirements.txt` is complete
-2. Create `Procfile` in backend directory:
+2. Verify `railway.toml` exists at repository root with Docker configuration:
+   ```toml
+   [build]
+   builder = "DOCKERFILE"
+   dockerfilePath = "backend/Dockerfile"
+   dockerContext = "backend"
    ```
-   web: python app.py
-   ```
-3. Ensure `PORT` environment variable is used in `app.py`
+3. Ensure `Dockerfile` exists in backend directory
+4. Verify `start.sh` is executable and in backend directory
+5. Ensure `PORT` environment variable is used in `app.py`
 
 #### 2. Deploy to Railway
 1. Visit [Railway.app](https://railway.app/)
@@ -113,10 +118,8 @@ db.recommendations.createIndex({ "created_at": -1 })
 3. Click "New Project"
 4. Select "Deploy from GitHub repo"
 5. Select your repository
-6. Configure:
-   - **Root Directory**: Leave empty or set to `/`
-   - **Build Command**: `cd backend && pip install -r requirements.txt`
-   - **Start Command**: `cd backend && python app.py`
+6. Railway will automatically detect the Dockerfile and use the railway.toml configuration
+7. No need to manually configure build commands - railway.toml handles this
 
 #### 3. Set Environment Variables
 In Railway project settings, add:

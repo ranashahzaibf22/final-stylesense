@@ -39,6 +39,51 @@ chmod +x backend/start.sh
 
 ---
 
+### Error: Docker Build Failed - "requirements.txt: not found"
+**Symptom**: Railway build fails with error similar to:
+```
+ERROR: failed to build: failed to solve: failed to compute cache key: 
+failed to calculate checksum of ref: "/requirements.txt": not found
+```
+
+**Causes**:
+1. Docker build context set to repository root instead of backend directory
+2. Missing root-level railway.toml configuration
+3. Dockerfile trying to copy files from wrong location
+
+**Solutions**:
+
+1. **Ensure root railway.toml exists** with correct configuration:
+   ```toml
+   [build]
+   builder = "DOCKERFILE"
+   dockerfilePath = "backend/Dockerfile"
+   dockerContext = "backend"
+   watchPaths = ["backend/**"]
+   ```
+
+2. **Verify the railway.toml is at repository root**:
+   ```bash
+   ls -la railway.toml
+   # Should show: railway.toml at root level
+   ```
+
+3. **Check Dockerfile COPY commands**:
+   - When dockerContext = "backend", COPY paths are relative to backend/
+   - `COPY requirements.txt .` will look for backend/requirements.txt
+   - `COPY . .` will copy all files from backend/
+
+4. **Verify required files exist**:
+   ```bash
+   ls -la backend/requirements.txt
+   ls -la backend/Dockerfile
+   ls -la backend/start.sh
+   ```
+
+**Note**: This is the most common Docker deployment error. The fix requires a properly configured railway.toml at the repository root to set the correct build context.
+
+---
+
 ### Error: "Application Error" or 500 Internal Server Error
 **Symptom**: Backend returns 500 error or "Application Error" message
 
