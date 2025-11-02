@@ -432,8 +432,11 @@ Use Postman collection for API testing:
 1. Create Railway account
 2. Create new project
 3. Connect GitHub repository
-4. Set environment variables
-5. Deploy
+4. Verify `railway.toml` exists at repository root (configures Docker build context)
+5. Set environment variables (MONGODB_URI, FLASK_SECRET_KEY, CORS_ORIGINS)
+6. Deploy
+
+**Note**: The repository includes a `railway.toml` configuration file that ensures the Docker build uses the correct context. This prevents common build errors related to missing files.
 
 ### Frontend Deployment (Vercel)
 
