@@ -118,11 +118,11 @@ The following files are used for Railway deployment:
   - This prevents "requirements.txt not found" errors
 - `Dockerfile` - Docker build configuration (primary)
 - `.dockerignore` - Files to exclude from Docker build
-- `railway.toml` - Backend-specific Railway configuration (optional, legacy)
+- `railway.toml` - Backend-specific Railway configuration (contains environment variable documentation)
 - `Procfile` - Fallback if Docker build fails
 - `start.sh` - Startup script used by Docker
 
-**Important**: The root-level `railway.toml` is essential for correct Docker builds. It ensures Railway uses the backend directory as the build context.
+**Important**: The root-level `railway.toml` is essential for correct Docker builds. It ensures Railway uses the backend directory as the build context. The backend-level `railway.toml` provides additional configuration and documentation but is overridden by the root configuration.
 
 ## Monitoring
 

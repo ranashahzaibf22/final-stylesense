@@ -64,8 +64,8 @@ failed to calculate checksum of ref: "/requirements.txt": not found
 
 2. **Verify the railway.toml is at repository root**:
    ```bash
-   ls -la railway.toml
-   # Should show: railway.toml at root level
+   # Check if railway.toml exists at repository root
+   test -f railway.toml && echo "✓ railway.toml found at root" || echo "✗ railway.toml missing"
    ```
 
 3. **Check Dockerfile COPY commands**:
