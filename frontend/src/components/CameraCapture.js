@@ -114,11 +114,9 @@ function CameraCapture({ onCapture }) {
         
         // Get pose keypoints for feedback
         try {
-          const formData = new FormData();
-          formData.append('file', file);
-          const response = await api.post('/body-shape/analyze', formData);
-          if (response.data.success) {
-            setPoseKeypoints(response.data.analysis);
+          const response = await api.analyzeBodyShape(file);
+          if (response.success) {
+            setPoseKeypoints(response.analysis);
             setFeedback('Image captured successfully!');
           }
         } catch (err) {
@@ -164,11 +162,9 @@ function CameraCapture({ onCapture }) {
           
           // Get pose keypoints
           try {
-            const formData = new FormData();
-            formData.append('file', file);
-            const response = await api.post('/body-shape/analyze', formData);
-            if (response.data.success) {
-              setPoseKeypoints(response.data.analysis);
+            const response = await api.analyzeBodyShape(file);
+            if (response.success) {
+              setPoseKeypoints(response.analysis);
               setFeedback('Image loaded successfully!');
             }
           } catch (err) {
