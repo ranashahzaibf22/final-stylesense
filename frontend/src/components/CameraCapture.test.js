@@ -145,11 +145,9 @@ describe('CameraCapture Component', () => {
     
     const input = screen.getByLabelText(/Upload from Gallery/i).querySelector('input');
     
-    api.post.mockResolvedValue({
-      data: {
-        success: true,
-        analysis: { body_type: 'rectangle', confidence: 0.85, method: 'mediapipe' }
-      }
+    api.analyzeBodyShape = jest.fn().mockResolvedValue({
+      success: true,
+      analysis: { body_type: 'rectangle', confidence: 0.85, method: 'mediapipe' }
     });
     
     // Mock FileReader
@@ -211,17 +209,15 @@ describe('CameraCapture Component', () => {
     });
     
     // Mock API response with pose data
-    api.post.mockResolvedValue({
-      data: {
-        success: true,
-        analysis: {
-          body_type: 'hourglass',
-          confidence: 0.92,
-          method: 'mediapipe',
-          measurements: {
-            shoulder_width: 0.4,
-            hip_width: 0.38
-          }
+    api.analyzeBodyShape = jest.fn().mockResolvedValue({
+      success: true,
+      analysis: {
+        body_type: 'hourglass',
+        confidence: 0.92,
+        method: 'mediapipe',
+        measurements: {
+          shoulder_width: 0.4,
+          hip_width: 0.38
         }
       }
     });
@@ -248,8 +244,8 @@ describe('CameraCapture Component', () => {
       expect(screen.getByText('📷 Capture')).toBeInTheDocument();
     });
     
-    api.post.mockResolvedValue({
-      data: { success: true, analysis: { body_type: 'rectangle', confidence: 0.85, method: 'mediapipe' } }
+    api.analyzeBodyShape = jest.fn().mockResolvedValue({
+      success: true, analysis: { body_type: 'rectangle', confidence: 0.85, method: 'mediapipe' }
     });
     
     const captureButton = screen.getByText('📷 Capture');
@@ -280,8 +276,8 @@ describe('CameraCapture Component', () => {
     });
     
     // Mock slow API response
-    api.post.mockImplementation(() => new Promise(resolve => setTimeout(() => resolve({
-      data: { success: true, analysis: { body_type: 'rectangle', confidence: 0.85, method: 'mediapipe' } }
+    api.analyzeBodyShape = jest.fn().mockImplementation(() => new Promise(resolve => setTimeout(() => resolve({
+      success: true, analysis: { body_type: 'rectangle', confidence: 0.85, method: 'mediapipe' }
     }), 100)));
     
     const captureButton = screen.getByText('📷 Capture');
@@ -307,7 +303,7 @@ describe('CameraCapture Component', () => {
     });
     
     // Mock API error
-    api.post.mockRejectedValue(new Error('Network error'));
+    api.analyzeBodyShape = jest.fn().mockRejectedValue(new Error('Network error'));
     
     const captureButton = screen.getByText('📷 Capture');
     fireEvent.click(captureButton);
